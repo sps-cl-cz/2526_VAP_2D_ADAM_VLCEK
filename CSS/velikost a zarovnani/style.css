@@ -1,0 +1,43 @@
+:root{
+    font-size: 24px;
+}
+
+div{
+    font-size: 2em;
+}
+
+p{
+    text-align: justify;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    font-size: 10vw;
+    text-align: center;
+}
+
+span{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+}
+
+div{
+    width: fit-content;
+    margin: 20px 30px 40px 50px;
+    padding: 10px;
+    border: 10px solid black;
+}
+
+div div{
+    margin: 0px;
+    width: 250px;
+    height: 150px;
+    background-color: red;
+}
+
+
+
+
