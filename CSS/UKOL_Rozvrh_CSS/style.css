@@ -1,0 +1,49 @@
+.nadpis {
+  text-align: center;
+}
+  
+.rozvrh {
+  display: grid;
+  grid-template-columns: 120px repeat(10, 110px);
+  gap: 10px;
+  margin: 20px;
+}
+  
+.hodina {
+  text-align: center;
+  font-size: 14px;
+}
+  
+.den {
+  display: flex;
+  align-items: center;
+}
+  
+.predmet {
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+}
+  
+.predmet span {
+  font-size: 12px;
+}
+
+.asw {background: #6aa2ff;}
+.inf {background: #7b61ff;}
+.ops {background: #ff6666;}
+.anj {background: #7ad95c;}
+.cit {background: #ffcf4d;}
+.cjl {background: #b07cff;}
+.prg {background: #5ba8ff;}
+.ele {background: #eb5757;}
+.msw {background: #6c63ff;}
+.mat {background: #8b1a1a;}
+.fyz {background: #272ae7;}
+.vap {background: #d32f2f;}
+.tev {background: #a1887f;}
+.kyb {background: #ff8c42;}
+.pos {background: #c0392b;}
+  
