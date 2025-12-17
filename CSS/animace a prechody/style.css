@@ -1,0 +1,71 @@
+
+.rect{
+    margin: 2rem 2rem;
+    width: 100px;
+    height: 100px;
+}
+
+.size_anim{
+    animation-name: size_animation;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    background: red;
+}
+
+@keyframes size_animation{
+    0%{ width: 100px;}y
+    100% {width: 300px;}
+    
+}
+
+.pos_anim{
+    background: green;
+    border-radius: 25px;
+    position: relative;
+    animation-name: pos_animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+@keyframes size_animation{
+    0%{ left: 0px; top: 0px;}
+    25%{ left: 100px; top: 0px;}
+    50%{ left: 100px; top: 100px;}
+    75%{ left: 0px; top: 100px;}   
+    100%{ left: 0px; top: 0px;}
+    
+}
+
+.color_anim{
+    background: blue;
+    border-radius: 50px;
+    animation: color_animation 10s 
+}
+
+@keyframes color_animation {
+    0%{ background-color: blue;}
+    25%{ background-color: red;}
+    50%{ background-color: green;}
+    75%{ background-color: yellow;}   
+    100%{ background-color: blue;}
+}
+
+.size_transition{
+    background: darkblue;
+    border-radius: 50px;
+    transition: width;
+}
+
+.pos_transition{
+    background: darkgreen;
+    border-radius: 25px;
+}
+
+.transform_transition{
+    background: darkred;
+}
