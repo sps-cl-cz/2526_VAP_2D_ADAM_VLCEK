@@ -1,0 +1,16 @@
+body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+button {
+    margin-left: 10px;
+}
+
