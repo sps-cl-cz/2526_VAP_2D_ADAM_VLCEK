@@ -1,0 +1,12 @@
+.correct_result{
+    color: green;
+ 
+}
+ 
+.wrong_result{
+    color: red;
+}
+#results{
+    display: flex;
+    flex-direction: column-reverse;
+}

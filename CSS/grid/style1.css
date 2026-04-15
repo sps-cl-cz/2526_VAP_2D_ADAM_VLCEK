@@ -1,0 +1,38 @@
+.container {
+  background-color: dodgerblue;
+  padding: 5px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: 
+  'Header Header Header Header Header Header'
+  'Left main main main main Right'
+  'Left Footer Footer Footer Footer';
+}
+
+.item {
+  background-color: #f1f1f1;
+  color:#000;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.item1{
+  grid-area: Header;
+}
+
+.item2{
+  grid-area: Header;
+}
+
+.item3{
+  grid-area: Header;
+}
+
+.item4{
+  grid-area: Header;
+}
+
+.item5{
+  grid-area: Header;
+}

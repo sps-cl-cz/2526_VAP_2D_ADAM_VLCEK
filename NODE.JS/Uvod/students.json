@@ -1,0 +1,12 @@
+[
+  {"id": 1, "name": "Jan", "grade": 2},
+  {"id": 2, "name": "Eva", "grade": 1},
+  {"id": 3, "name": "Petr", "grade": 4},
+  {"id": 4, "name": "Anna", "grade": 2},
+  {"id": 5, "name": "Eva", "grade": 3},
+  {"id": 6, "name": "Karel", "grade": 2},
+  {"id": 7, "name": "Jan", "grade": 3},
+  {"id": 8, "name": "Petr", "grade": 1},
+  {"id": 9, "name": "Lucie", "grade": 4},
+  {"id": 10, "name": "Anna", "grade": 1}
+]
