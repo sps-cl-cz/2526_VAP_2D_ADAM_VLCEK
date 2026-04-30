@@ -1,11 +1,11 @@
 const path = require('path');
 const express = require('express');
 const { error } = require('console');
- 
+
 const app = express();
- 
+
 const users = [];
- 
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public', 'views'));
  
@@ -21,7 +21,7 @@ app.get("/", (req, resp) => {
 app.get("/register", (req, resp) => {
     resp.render("register")
 });
- 
+
 app.post("/register", (req, resp) => {
     const user = req.body;
     const savedUser = users.find((v) => v.username === user.username);
@@ -31,9 +31,8 @@ app.post("/register", (req, resp) => {
         users.push(user);
         resp.redirect("/login");    
     }
-   
 });
- 
+
 app.get("/login", (req, resp) => {
     resp.render("login")
 });
@@ -41,8 +40,9 @@ app.get("/login", (req, resp) => {
 app.post("/login", (req, resp) => {
     const {username, password} = req.body;
     const user = users.find((v) => v.username === username);
-    if(user) {    
-        return resp.render("index", {user});;
+
+    if(user && user.password === password) {    
+        return resp.render("index", {user});
     }
     resp.redirect("/login");
 });
@@ -51,30 +51,24 @@ app.listen(3000, () => {
     console.log("http://localhost:3000")
 });
 
-
-
 app.get("/reset_password", (req, resp) => {
     resp.render("reset_password");
 });
 
 app.post("/reset_password", (req, resp) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
+    const { username, password, confirmPassword } = req.body;
 
     const user = users.find((v) => v.username === username);
 
     if (!user) {
-        resp.render("reset_password", { error: "Uživatel nebyl nalezen." });
-        return;
+        return resp.send("<h1>Uživatel nebyl nalezen.</h1>");
     }
 
     if (password !== confirmPassword) {
-        resp.render("reset_password", { error: "Zadaná hesla se neshodují." });
-        return;
+        return resp.send("<h1>Zadaná hesla se neshodují.</h1>");
     }
 
     user.password = password;
 
-    resp.render("login");
+    return resp.send("<h1>Heslo bylo úspěšně změněno.</h1>");
 });
