@@ -61,14 +61,14 @@ app.post("/reset_password", (req, resp) => {
     const user = users.find((v) => v.username === username);
 
     if (!user) {
-        return resp.send("<h1>Uživatel nebyl nalezen.</h1>");
+        return resp.render("reset_password", { error: "Uživatel nebyl nalezen." });
     }
 
     if (password !== confirmPassword) {
-        return resp.send("<h1>Zadaná hesla se neshodují.</h1>");
+        return resp.render("reset_password", { error: "Zadaná hesla se neshodují." });
     }
 
     user.password = password;
 
-    return resp.send("<h1>Heslo bylo úspěšně změněno.</h1>");
+    return resp.redirect("/");
 });
