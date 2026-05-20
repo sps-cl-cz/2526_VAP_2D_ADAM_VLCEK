@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const sql = require('mssql/msnodesqlv8');
-const { register } = require('module');
+const fileUpload = require('express-fileupload');
 
 const config = {
     connectionString:
@@ -82,7 +82,7 @@ app.post("/register", async (req, resp) => {
     } */
    
 });
- 
+
 app.get("/login", (req, resp) => {
     resp.render("login")
 });
@@ -136,6 +136,38 @@ app.post("/reset_password", async (req, resp) => {
     `;
     resp.redirect("/login");
 });
+
+app.get("/logout", (req, resp) => {
+    req.session.destroy(() => {
+        resp.redirect("/login");
+    });
+});
+
+app.post('/upload', (req, resp) => {
+    const user = req.session.user;
+    if (!user) {
+        return resp.redirect("/");
+    }
+    const files = req.files;
+    if (!files || !files.image) {
+        return resp.redirect("/");
+    }
+    const image = files.image;
+    const suffix = Date.now() + path.extname (image.name);
+    const fileName = `image-${user,id}-${suffix}` ;
+    await image.mv(path.join(__dirname, `public`, 'uploads', fileName));
+    await pool.query `UPDATE Users SET image=${fileName} where id=${user.id}`;
+    req.session.user = user
+    resp.redirect("/");
+ 
+});
+
+
+
+
+
+
+
 
 connect().then(
     () => {

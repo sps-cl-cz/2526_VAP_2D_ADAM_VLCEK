@@ -13,6 +13,7 @@
   "dependencies": {
     "ejs": "^5.0.2",
     "express": "^5.2.1",
+    "express-fileupload": "^1.5.2",
     "express-session": "^1.19.0",
     "msnodesqlv8": "^5.1.9",
     "mssql": "^12.5.2"
