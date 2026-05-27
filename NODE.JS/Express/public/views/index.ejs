@@ -3,22 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="views/style.css">
-    <script src="/public/scripts/index.js" defer></script>
+    <title>Hlavní stránka</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="scripts/index.js" defer></script>
+    
+    <% if (locals.user && user.background) { %>
+    <style>
+        body {
+            background-image: url('/uploads/<%= user.background %>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+    <% } %>
 </head>
 <body>
-    <h1>
-        Ahoj
+    <div class="container">
         <% if (locals.user) {%>
-            <%= user.username %>
-            <form id="upload-form" action="/uploads/" method="POST" enctype="multipart/form-data">
-                <img id="user-image" src="/uploads/<%= user.image %>" alt="">
+            <h1>Vítej, <%= user.username %>!</h1>
+            
+            <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+                <img id="user-image" src="/uploads/<%= user.image %>" alt="" style="max-width: 150px; border-radius: 50%;">
                 <input id="image-input" type="file" name="image" accept="image/*" style="display: none;">
             </form>
+            
+            <div class="links">
+                <a href="/changepassword" class="btn">Změna hesla</a>
+                <a href="/logout" class="btn">Odhlásit</a>
+            </div>
+
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+            
+            <h3 style="margin-bottom: 10px; color: #333; font-size: 1.1rem;">Nastavení pozadí</h3>
+            <form action="/upload-background" method="POST" enctype="multipart/form-data" style="gap: 10px;">
+                <input type="file" name="background" accept="image/*" required style="border: 1px solid #ddd; padding: 5px; border-radius: 4px;">
+                <button type="submit" class="btn">Nastavit pozadí</button>
+            </form>
+
+        <% } else { %>
+            <h1>Vítejte</h1>
+            <p>Nejprve se zaregistrujte anebo přihlašte</p>
+            <div class="links">
+                <a href="/register" class="btn">Registrace</a>
+                <a href="/login" class="btn">Přihlášení</a>
+            </div>
         <% } %>
-       
-    </h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque quam, reprehenderit nihil odit modi hic inventore id illum eaque temporibus fugiat veniam non unde reiciendis optio. Quaerat, quo? Mollitia, quas.</p>
+    </div>
 </body>
 </html>

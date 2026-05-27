@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrace</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <% if (locals.error) {%>
-        <p style="color: red;"><%= error %></p>
-        <br>
-    <% } %>
-    <form action="/register" method="POST">
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <input type="submit" value="Register">
-    </form>
+    <div class="container">
+        <h1>Registrace</h1>
+        <% if (locals.error) { %>
+            <p class="error-msg"><%= error %></p>
+        <% } %>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Uživatelské jméno" required>
+            <input type="password" name="password" placeholder="Heslo" required>
+            <input type="submit" value="Registrace">
+        </form>
+        <div class="links">
+            <a href="/" style="font-size: 0.8rem; color: #777;">Zpět na úvod</a>
+        </div>
+    </div>
 </body>
 </html>
