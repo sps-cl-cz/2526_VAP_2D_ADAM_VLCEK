@@ -1,0 +1,1 @@
+alter table Users add background nvarchar(100);

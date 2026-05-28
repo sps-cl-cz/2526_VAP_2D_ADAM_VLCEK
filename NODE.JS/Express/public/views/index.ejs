@@ -26,8 +26,8 @@
         <% if (locals.user) {%>
             <h1>Vítej, <%= user.username %>!</h1>
             
-            <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
-                <img id="user-image" src="/uploads/<%= user.image %>" alt="" style="max-width: 150px; border-radius: 50%;">
+            <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" style="align-items: center;">
+                <img id="user-image" src="/uploads/<%= user.image %>" alt="Profilovka" style="width: 150px; height: 150px; border-radius: 50%; background-color: #ddd; object-fit: cover; cursor: pointer; border: 3px solid #1a73e8; margin: 0 auto;">
                 <input id="image-input" type="file" name="image" accept="image/*" style="display: none;">
             </form>
             
@@ -39,9 +39,9 @@
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
             
             <h3 style="margin-bottom: 10px; color: #333; font-size: 1.1rem;">Nastavení pozadí</h3>
-            <form action="/upload-background" method="POST" enctype="multipart/form-data" style="gap: 10px;">
-                <input type="file" name="background" accept="image/*" required style="border: 1px solid #ddd; padding: 5px; border-radius: 4px;">
-                <button type="submit" class="btn">Nastavit pozadí</button>
+            <form id="bg-form" action="/upload-background" method="POST" enctype="multipart/form-data">
+                <input id="bg-input" type="file" name="background" accept="image/*" style="display: none;">
+                <button id="bg-button" type="button" class="btn">Změnit pozadí</button>
             </form>
 
         <% } else { %>

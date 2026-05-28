@@ -8,7 +8,7 @@ const config = {//pripojeni k databazi
     connectionString:
         "Driver={ODBC Driver 17 for SQL Server};" +//driver - to co komunikuje s databazi
         "Server=(localdb)\\MSSQLLocalDB;" +//nazev databazoveho serveru
-        "Database=WebApp;" +//nazev databaze
+        "Database=AppWeb;" +//nazev databaze
         "Trusted_Connection=Yes;" +//pripojeni bez hesla
         "Encrypt=No;" +//bez sifrovani
         "TrustServerCertificate=Yes;"//bez overeni certifikatu
